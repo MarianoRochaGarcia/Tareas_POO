@@ -1,4 +1,4 @@
-public class Ej_Java{
+public class Tarea_1{
 
    public static void main(String args[]){
 

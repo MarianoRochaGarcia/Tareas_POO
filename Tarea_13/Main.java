@@ -1,0 +1,8 @@
+package Swing;
+
+public class Main {
+    public static void main(String[] args) {
+
+       VentanaSwing ventanaSwing = new VentanaSwing("Centigrados a Farenheith");
+    }
+}

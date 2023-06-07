@@ -29,22 +29,23 @@ public class EstadoDeMexicoDAO implements InterfazDAO {
 
     @Override
     public boolean update(Object obj) throws SQLException {
-        String sqlUpdate = "UPDATE estadosDeMexico SET nombre = ?, url = ?, comida_tipica = ?, millones_habitantes = ?, num_municipios = ? WHERE id = ?; ";
+        String sqlUpdate = "UPDATE estadosDeMexico SET nombre =?, url =?, comida_tipica =?, millones_habitantes =?, num_municipios =? WHERE id =?;";
         int rowCount = 0;
         PreparedStatement pstm = ConexionSingleton.get_instance("estadosDeMexicoDB.db").getConnection().prepareStatement(sqlUpdate);
-        pstm.setString(1, ((EstadoDeMexico) obj).getNombre());
-        pstm.setString(2, ((EstadoDeMexico) obj).getUrl());
-        pstm.setString(3, ((EstadoDeMexico) obj).getComidaTipica());
-        pstm.setDouble(4, ((EstadoDeMexico) obj).getMillonesHabitantes());
-        pstm.setInt(5, ((EstadoDeMexico) obj).getNumMunicipios());
-        pstm.setInt(6, ((EstadoDeMexico) obj).getId());
+        pstm.setInt(1, ((EstadoDeMexico) obj).getId());
+        pstm.setString(2, ((EstadoDeMexico) obj).getNombre());
+        pstm.setString(3, ((EstadoDeMexico) obj).getUrl());
+        pstm.setString(4, ((EstadoDeMexico) obj).getComidaTipica());
+        pstm.setDouble(5, ((EstadoDeMexico) obj).getMillonesHabitantes());
+        pstm.setInt(6, ((EstadoDeMexico) obj).getNumMunicipios());
+
         rowCount = pstm.executeUpdate();
         return rowCount > 0;
     }
 
     @Override
     public boolean delete(String id) throws SQLException {
-        String sqlDelete = "DELETE FROM estadosDeMexico WHERE id = ? ;";
+        String sqlDelete = "DELETE FROM estadosDeMexico WHERE id = ?;";
         int rowCount = 0;
         PreparedStatement pstm = ConexionSingleton.get_instance("estadosDeMexicoDB.db").getConnection().prepareStatement(sqlDelete);
         pstm.setInt(1, Integer.parseInt(id));

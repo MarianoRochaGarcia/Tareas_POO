@@ -25,6 +25,9 @@ public class VentanaEstado extends JFrame {
     private JScrollPane scrollPane;
     private GridLayout layout;
 
+    private JButton btnModificar;
+    private JButton btnEliminar;
+
     private JPanel panel1; //Formulario
     private JPanel panel2;//Tabla
     private JPanel panel3;
@@ -85,7 +88,11 @@ public class VentanaEstado extends JFrame {
         panel3.add(imagen);
         //PANEL4
         panel4 = new JPanel(new FlowLayout());
-        panel4.setBackground(new Color(225, 216, 157));
+        panel4.setBackground(new Color(150, 197, 119));
+        btnModificar = new JButton("Modificar");
+        panel4.add(btnModificar);
+        btnEliminar = new JButton("Eliminar");
+        panel4.add(btnEliminar);
 
         this.getContentPane().add(panel1,0);
         this.getContentPane().add(panel2,1);
@@ -270,6 +277,22 @@ public class VentanaEstado extends JFrame {
 
     public void setImagen(JLabel imagen) {
         this.imagen = imagen;
+    }
+
+    public JButton getBtnModificar() {
+        return btnModificar;
+    }
+
+    public void setBtnModificar(JButton btnModificar) {
+        this.btnModificar = btnModificar;
+    }
+
+    public JButton getBtnEliminar() {
+        return btnEliminar;
+    }
+
+    public void setBtnEliminar(JButton btnEliminar) {
+        this.btnEliminar = btnEliminar;
     }
 
     public void limpiar(){

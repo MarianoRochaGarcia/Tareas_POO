@@ -161,4 +161,39 @@ public class ModeloTablaEstados implements TableModel {
         }
         return resultado;
     }
+
+    public boolean modificarEstado(EstadoDeMexico est){
+
+        boolean resultado = false;
+
+        try{
+            if (estDAO.update(est)){
+                datos.add(est);
+                resultado = true;
+            } else{
+                resultado = false;
+            }
+        }catch (SQLException sqle){
+            sqle.printStackTrace();
+        }
+        return resultado;
+    }
+
+    public boolean eliminarEstado(String id){
+        boolean resultado = false;
+        try{
+            if (estDAO.delete(id)){
+                resultado = true;
+            }else {
+                resultado = false;
+            }
+        }catch (SQLException sqle){
+            sqle.printStackTrace();
+        }
+        return resultado;
+    }
+    public EstadoDeMexico getEstados(int inx){
+        return datos.get(inx);
+    }
+
 }
